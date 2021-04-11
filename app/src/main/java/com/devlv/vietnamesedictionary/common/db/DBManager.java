@@ -5,8 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
-import java.io.IOException;
-
 public class DBManager {
     private static final String TAG = "DBManager";
     //TODO add SQLiteException
@@ -57,11 +55,17 @@ public class DBManager {
     }
 
     public Cursor getMeaningByIDCharacterCursor(int id) {
-        Cursor cursor = db.query(DBTable.VN.VN_TABLE_NAME
+        Cursor cursor = db.query(DBTable.MEANING.MEANING_TABLE_NAME
                 , null
                 , DBTable.MEANING.VN_CHART + " = ?"
                 , new String[]{String.valueOf(id)}
                 , null, null, null);
+        if (cursor != null) cursor.moveToFirst();
+        return cursor;
+    }
+
+    public Cursor getMoreCursor(int limit) {
+        Cursor cursor = db.rawQuery("select * from " + DBTable.MEANING.MEANING_TABLE_NAME + " limit " + limit, null);
         if (cursor != null) cursor.moveToFirst();
         return cursor;
     }

@@ -9,6 +9,7 @@
     tools:showIn="@layout/app_bar_main">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_search"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginStart="15dp"
@@ -16,11 +17,101 @@
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="5dp"
         app:cardElevation="1dp">
-        <RelativeLayout
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/img_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_search"
+                app:tint="@color/gray" />
+
+            <EditText
+                android:id="@+id/edt_search"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/img_search"
+                android:background="@null"
+                android:hint="@string/search_hint_character"
+                android:paddingStart="5dp"
+                android:paddingEnd="15dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/img_close_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:padding="12dp"
+                android:src="@drawable/ic_close_search"
+                android:visibility="gone" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cv_search"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.devlv.vietnamesedictionary.widgets.SquareLinearLayout
+            android:id="@+id/sq_charcter"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="@string/home_item_character"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.devlv.vietnamesedictionary.widgets.SquareLinearLayout>
+
+        <com.devlv.vietnamesedictionary.widgets.SquareLinearLayout
+            android:id="@+id/sq_word"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="@string/home_item_word"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.devlv.vietnamesedictionary.widgets.SquareLinearLayout>
+    </LinearLayout>
+
+
 </RelativeLayout>

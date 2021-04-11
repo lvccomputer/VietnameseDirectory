@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vietnamese Dictionary</string>
+
+    <string name="search_hint_character">Search...</string>
+
+    <string name="home_item_word">Words</string>
+    <string name="home_item_character">Alphabet</string>
+    <string name="title_fragment_preview">List of words of letter A</string>
+    <string name="tutorial_select_character">Please choose your letter.</string>
+</resources>

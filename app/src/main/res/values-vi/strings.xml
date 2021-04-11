@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Từ Điển Tiếng Việt</string>
+    <string name="search_hint_character">Tìm kiếm ...</string>
+    <string name="home_item_word">Từ ngữ</string>
+    <string name="home_item_character">Bảng chữ cái</string>
+    <string name="title_fragment_preview">Danh sách các từ của chữ cái</string>
+    <string name="tutorial_select_character">Hãy chọn chữ cái của bạn.</string>
+</resources>
