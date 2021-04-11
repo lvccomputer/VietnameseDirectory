@@ -9,6 +9,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.devlv.vietnamesedictionary.App;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private SQLiteDatabase myDataBase;
     private Context mContext;
     private static final String DATABASE_NAME = "directory.db";
-    public final static String DATABASE_PATH = "/data/data/" + "com.devlv.vietnamesedictionary" + "/databases/";
+    public final static String DATABASE_PATH = "/data/data/" + App.getApp().getPackageName() + "/databases/";
     public static final int DATABASE_VERSION = 1;
 
     public DBHelper(Context context) {

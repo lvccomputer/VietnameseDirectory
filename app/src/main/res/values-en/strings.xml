@@ -2,10 +2,29 @@
 <resources>
     <string name="app_name">Vietnamese Dictionary</string>
 
-    <string name="search_hint_character">Search...</string>
+    <string name="search_hint_character">Search…</string>
 
     <string name="home_item_word">Words</string>
     <string name="home_item_character">Alphabet</string>
-    <string name="title_fragment_preview">List of words of letter A</string>
+    <string name="title_fragment_preview">List of words of letter</string>
     <string name="tutorial_select_character">Please choose your letter.</string>
+    <string name="title_meaning">Define</string>
+    <string name="home_item_add_words">Add words</string>
+    <string name="home_item_edit">Words editor</string>
+    <string name="tutorial_add_words_fragment">Select letters to add words</string>
+    <string name="title_add_word_fragment">Choose letters</string>
+    <string name="title_add_word_content_fragment">Add words</string>
+
+    <string name="hint_add_words">Enter your word…</string>
+    <string name="words_title_of_edit">Words</string>
+    <string name="text_select_photo">Choose an image</string>
+    <string name="title_addword_photo">Illustration</string>
+    <string name="title_add_word_meaning">Define</string>
+
+    <string name="add_word_character">Alphabet:</string>
+    <string name="text_save_add">Save</string>
+
+    <string name="or"> Or </string>
+    <string name="not_equals"> must start with a letter </string>
+    <string name="empty"> is empty!</string>
 </resources>

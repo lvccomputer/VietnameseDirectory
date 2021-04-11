@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.devlv.vietnamesedictionary.R;
+import com.devlv.vietnamesedictionary.ui.main.MainActivity;
 
 public class SplashScreenActivity extends BaseActivity {
 

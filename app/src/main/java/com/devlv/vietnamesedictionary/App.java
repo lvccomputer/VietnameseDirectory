@@ -16,11 +16,17 @@ public class App extends Application {
         super.onCreate();
         app = this;
         createDB();
+//        if (!Utils.checkPhotoFolder())
+//            copyPhoto();
     }
 
     private void createDB() {
         DBManager dbManager = new DBManager(this);
         dbManager.opeDB();
         dbManager.closeDB();
+    }
+
+    private void copyPhoto() {
+        Utils.copyFileOrDir(this, "photo");
     }
 }

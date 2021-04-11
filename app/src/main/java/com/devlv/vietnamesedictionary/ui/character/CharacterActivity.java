@@ -1,4 +1,4 @@
-package com.devlv.vietnamesedictionary.ui.activity;
+package com.devlv.vietnamesedictionary.ui.character;
 
 import android.os.Bundle;
 
@@ -12,8 +12,11 @@ import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
 import com.devlv.vietnamesedictionary.adapters.characters.CharacterAdapter;
 import com.devlv.vietnamesedictionary.common.models.CharacterVN;
-import com.devlv.vietnamesedictionary.ui.fragments.PreviewFragment;
+import com.devlv.vietnamesedictionary.common.models.Word;
+import com.devlv.vietnamesedictionary.ui.activity.BaseActivity;
+import com.devlv.vietnamesedictionary.ui.character.fragments.ContentFragment;
 import com.devlv.vietnamesedictionary.viewmodels.CharacterViewModel;
+import com.devlv.vietnamesedictionary.ui.character.fragments.PreviewFragment;
 
 import java.util.ArrayList;
 
@@ -110,4 +113,10 @@ public class CharacterActivity extends BaseActivity implements ItemClickListener
         }
     }
 
+    public void showContentFragment(Word word) {
+        if (getSupportFragmentManager().findFragmentByTag(ContentFragment.class.getSimpleName()) == null) {
+            ContentFragment fragment = ContentFragment.newInstance(word);
+            addFragment(fragment, ContentFragment.class.getSimpleName());
+        }
+    }
 }

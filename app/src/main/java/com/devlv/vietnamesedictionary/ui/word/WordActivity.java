@@ -1,23 +1,27 @@
-package com.devlv.vietnamesedictionary.ui.activity.words;
+package com.devlv.vietnamesedictionary.ui.word;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.devlv.vietnamesedictionary.Callback;
 import com.devlv.vietnamesedictionary.R;
+import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
 import com.devlv.vietnamesedictionary.adapters.words.PreviewAdapter;
 import com.devlv.vietnamesedictionary.common.models.Word;
 import com.devlv.vietnamesedictionary.ui.activity.BaseActivity;
+import com.devlv.vietnamesedictionary.ui.main.ContentFragment;
 import com.devlv.vietnamesedictionary.widgets.EndlessRecyclerViewScrollListener;
 
 import java.util.ArrayList;
 
-public class WordActivity extends BaseActivity {
+public class WordActivity extends BaseActivity implements ItemClickListener<Word> {
     private static final String TAG = "WordActivity";
     private int limit = 20;
 
@@ -82,8 +86,8 @@ public class WordActivity extends BaseActivity {
                 Log.e(TAG, "onLoadMore: "+limit);
             }
         };
-
         rcvWordPreview.addOnScrollListener(mListener);
+        mPreviewAdapter.setWordItemClickListener(this);
     }
 
     private void initTask() {
@@ -111,5 +115,27 @@ public class WordActivity extends BaseActivity {
     @Override
     protected void actions() {
 
+    }
+    private void addFragment(@NonNull Fragment fragment,
+                             @NonNull String tag) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .addToBackStack(tag)
+                .setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.enter, R.anim.exit)
+                .add(R.id.word_container, fragment, tag)
+                .commitAllowingStateLoss();
+
+    }
+
+    public void showContentFragment(Word word) {
+        if (getSupportFragmentManager().findFragmentByTag(ContentWordFragment.class.getSimpleName()) == null) {
+            ContentWordFragment fragment = ContentWordFragment.newInstance(word);
+            addFragment(fragment, ContentFragment.class.getSimpleName());
+        }
+    }
+
+    @Override
+    public void onItemClick(int position, Word data) {
+        showContentFragment(data);
     }
 }

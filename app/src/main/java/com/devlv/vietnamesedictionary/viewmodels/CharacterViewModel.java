@@ -21,13 +21,14 @@ public class CharacterViewModel extends ViewModel {
         }
         return mCharacterLiveData;
     }
-    private void getCharacter(){
+
+    private void getCharacter() {
         ArrayList<CharacterVN> characterVNArrayList = new ArrayList<>();
         DBManager dbManager = new DBManager(App.getApp());
         dbManager.opeDB();
         Cursor cursor = dbManager.getCharacterCursor();
-        for (int index=0;index <cursor.getCount();index++){
-            CharacterVN vn = new CharacterVN(cursor.getInt(0),cursor.getString(1));
+        for (int index = 0; index < cursor.getCount(); index++) {
+            CharacterVN vn = new CharacterVN(cursor.getInt(0), cursor.getString(1));
             characterVNArrayList.add(vn);
             cursor.moveToNext();
         }

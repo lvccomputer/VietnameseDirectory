@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.devlv.vietnamesedictionary.ui.IToast;
+
 public abstract class BaseActivity extends AppCompatActivity implements IToast {
     private static final String TAG = "BaseActivity";
 

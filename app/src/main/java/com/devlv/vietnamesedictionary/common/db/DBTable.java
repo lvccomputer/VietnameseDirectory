@@ -13,6 +13,7 @@ public class DBTable {
         public static final String TITLE = "title";
         public static final String CONTENT = "content";
         public static final String PHOTO = "photo";
+        public static final String USER_CREATE = "userCreate";
         public static final String VN_CHART = "vnChar";
     }
 }

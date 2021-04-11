@@ -1,4 +1,4 @@
-package com.devlv.vietnamesedictionary.ui.fragments;
+package com.devlv.vietnamesedictionary.ui.character.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -19,9 +19,8 @@ import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
 import com.devlv.vietnamesedictionary.adapters.words.PreviewAdapter;
 import com.devlv.vietnamesedictionary.common.models.Word;
-import com.devlv.vietnamesedictionary.ui.activity.CharacterActivity;
-import com.devlv.vietnamesedictionary.ui.activity.IToast;
-import com.devlv.vietnamesedictionary.ui.activity.MainActivity;
+import com.devlv.vietnamesedictionary.ui.character.CharacterActivity;
+import com.devlv.vietnamesedictionary.ui.IToast;
 
 import java.util.ArrayList;
 
@@ -123,6 +122,6 @@ public class PreviewFragment extends Fragment implements Callback<ArrayList<Word
 
     @Override
     public void onItemClick(int position, Word data) {
-
+        activity.showContentFragment(data);
     }
 }

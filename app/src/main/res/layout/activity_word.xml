@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/word_container"
     android:layout_height="match_parent">
 
     <ImageView
@@ -44,7 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
             android:visibility="invisible" />
 
         <androidx.recyclerview.widget.RecyclerView

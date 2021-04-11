@@ -1,4 +1,4 @@
-package com.devlv.vietnamesedictionary.ui.activity;
+package com.devlv.vietnamesedictionary.ui;
 
 import android.content.Context;
 import android.widget.Toast;

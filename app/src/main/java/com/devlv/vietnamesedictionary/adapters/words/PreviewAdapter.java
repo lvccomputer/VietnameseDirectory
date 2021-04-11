@@ -14,6 +14,8 @@ import com.devlv.vietnamesedictionary.common.models.Word;
 import com.devlv.vietnamesedictionary.databinding.ItemListPreviewBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.ItemViewHolder> {
     /**
@@ -31,6 +33,7 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.ItemView
     public PreviewAdapter(Context mContext, ArrayList<Word> wordArrayList) {
         this.mContext = mContext;
         this.wordArrayList = wordArrayList;
+        sortList();
     }
 
     @NonNull
@@ -44,6 +47,10 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.ItemView
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.itemListPreviewBinding.setWord(wordArrayList.get(position));
+    }
+
+    private void sortList() {
+        Collections.sort(wordArrayList, (o1, o2) -> o1.getTitle().compareTo(o2.getTitle()));
     }
 
     @Override

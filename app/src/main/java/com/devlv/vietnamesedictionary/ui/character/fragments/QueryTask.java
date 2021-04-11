@@ -1,9 +1,8 @@
-package com.devlv.vietnamesedictionary.ui.fragments;
+package com.devlv.vietnamesedictionary.ui.character.fragments;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.devlv.vietnamesedictionary.Callback;
 import com.devlv.vietnamesedictionary.common.db.DBManager;
@@ -36,7 +35,7 @@ public class QueryTask extends AsyncTask<Integer, Void, ArrayList<Word>> {
                     , cursor.getString(1)
                     , cursor.getString(2)
                     , cursor.getString(3)
-                    , cursor.getInt(4));
+                    , cursor.getInt(4), cursor.getInt(5));
             wordArrayList.add(word);
             cursor.moveToNext();
         }

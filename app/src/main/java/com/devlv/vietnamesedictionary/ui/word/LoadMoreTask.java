@@ -1,4 +1,4 @@
-package com.devlv.vietnamesedictionary.ui.activity.words;
+package com.devlv.vietnamesedictionary.ui.word;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -36,7 +36,7 @@ public class LoadMoreTask extends AsyncTask<Integer, Void, ArrayList<Word>> {
                     , cursor.getString(1)
                     , cursor.getString(2)
                     , cursor.getString(3)
-                    , cursor.getInt(4));
+                    , cursor.getInt(4), cursor.getInt(5));
             wordArrayList.add(word);
             cursor.moveToNext();
         }
