@@ -3,6 +3,7 @@ package com.devlv.vietnamesedictionary.ui.word;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.devlv.vietnamesedictionary.Callback;
 import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
@@ -40,7 +42,7 @@ public class WordActivity extends BaseActivity implements ItemClickListener<Word
 
     @Override
     protected void onCreateActivity(Bundle bundle) {
-        onToast(WordActivity.class.getSimpleName());
+        Glide.with(this).load(R.drawable.bg_app).into((ImageView) findViewById(R.id.img_background));
         bindViews();
         actions();
         initRecycler();
@@ -54,6 +56,7 @@ public class WordActivity extends BaseActivity implements ItemClickListener<Word
         wordArrayList = new ArrayList<>();
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
+        findViewById(R.id.img_back).setOnClickListener(v -> finish());
     }
 
     private void initRecycler() {
@@ -64,12 +67,10 @@ public class WordActivity extends BaseActivity implements ItemClickListener<Word
         mListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                Log.e(TAG, "onLoadMore: ");
                 progressBar.setVisibility(View.VISIBLE);
                 mTask = new LoadMoreTask(new Callback<ArrayList<Word>>() {
                     @Override
                     public void onCallbackResult(ArrayList<Word> data) {
-                        Log.e(TAG, "onCallbackResult: "+data.size());
                         progressBar.setVisibility(View.INVISIBLE);
                         wordArrayList.clear();
                         wordArrayList.addAll(data);
@@ -83,7 +84,6 @@ public class WordActivity extends BaseActivity implements ItemClickListener<Word
                 }, WordActivity.this);
                 limit += 20;
                 mTask.execute(limit);
-                Log.e(TAG, "onLoadMore: "+limit);
             }
         };
         rcvWordPreview.addOnScrollListener(mListener);

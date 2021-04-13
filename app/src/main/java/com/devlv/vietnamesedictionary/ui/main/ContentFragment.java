@@ -49,6 +49,7 @@ public class ContentFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Glide.with(this).load(R.drawable.bg_app).into((ImageView) view.findViewById(R.id.img_background));
         if (getArguments() != null) {
             word = getArguments().getParcelable("_word");
         }

@@ -69,6 +69,7 @@ public class AddContentWordFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_content_word, container, false);
+        Glide.with(this).load(R.drawable.bg_app).into((ImageView) view.findViewById(R.id.img_background));
         mainActivity = (MainActivity) getActivity();
         return view;
     }

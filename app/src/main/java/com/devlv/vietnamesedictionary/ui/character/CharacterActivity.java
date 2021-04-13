@@ -1,6 +1,7 @@
 package com.devlv.vietnamesedictionary.ui.character;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
 import com.devlv.vietnamesedictionary.adapters.characters.CharacterAdapter;
@@ -40,6 +42,7 @@ public class CharacterActivity extends BaseActivity implements ItemClickListener
 
     @Override
     protected void onCreateActivity(Bundle bundle) {
+        Glide.with(this).load(R.drawable.bg_app).into((ImageView) findViewById(R.id.img_background));
         initVM();
         bindViews();
         initRecycler();
@@ -91,7 +94,6 @@ public class CharacterActivity extends BaseActivity implements ItemClickListener
 
     @Override
     public void onItemClick(int position, CharacterVN data) {
-        onToast(position, data.toString());
         showPreviewFragment(data.getId(), data.getCharacter());
     }
 

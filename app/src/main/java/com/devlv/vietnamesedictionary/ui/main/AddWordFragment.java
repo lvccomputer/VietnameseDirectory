@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.devlv.vietnamesedictionary.Callback;
 import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
@@ -55,6 +57,7 @@ public class AddWordFragment extends Fragment implements ItemClickListener<Chara
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mCharacterVM = ViewModelProviders.of(requireActivity()).get(CharacterViewModel.class);
+        Glide.with(this).load(R.drawable.bg_app).into((ImageView) view.findViewById(R.id.img_background));
         bindViews();
         initRecycler();
         setRecycler();

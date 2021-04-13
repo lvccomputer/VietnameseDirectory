@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.devlv.vietnamesedictionary.Callback;
 import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
@@ -65,6 +67,7 @@ public class PreviewFragment extends Fragment implements Callback<ArrayList<Word
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Glide.with(this).load(R.drawable.bg_app).into((ImageView) view.findViewById(R.id.img_background));
         if (getArguments() != null) {
             id = getArguments().getInt("_id");
             character = getArguments().getString("_character");

@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.devlv.vietnamesedictionary.Callback;
 import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
@@ -54,6 +55,7 @@ public class MainActivity extends BaseActivity implements ItemClickListener<Word
         actions();
         initRecycler();
         setDataRecycler();
+        Glide.with(this).load(R.drawable.bg_app).into((ImageView) findViewById(R.id.img_background));
     }
 
     @Override
