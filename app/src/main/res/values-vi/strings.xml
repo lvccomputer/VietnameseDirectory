@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Từ Điển Tiếng Việt</string>
+        <string name="app_name">Vietnamese Studies Dictionary</string>
     <string name="search_hint_character">Tìm kiếm ...</string>
     <string name="home_item_word">Từ ngữ</string>
     <string name="home_item_character">Bảng chữ cái</string>

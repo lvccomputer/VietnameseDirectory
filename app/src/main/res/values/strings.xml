@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vietnamese Dictionary</string>
+    <string name="app_name">Vietnamese Studies Dictionary</string>
 
     <string name="search_hint_character">Tìm kiếm ...</string>
     <string name="home_item_word">Từ Ngữ</string>
