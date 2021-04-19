@@ -104,7 +104,7 @@ public class WordSearchAdapter extends RecyclerView.Adapter<WordSearchAdapter.It
             this.binding = itemView;
             binding.cvPreview.setOnClickListener(v -> {
                 if (itemClickListener != null)
-                    itemClickListener.onItemClick(getAdapterPosition(), searchList.get(getAdapterPosition()));
+                    itemClickListener.onItemClick(getAdapterPosition(), searchList.get(getAdapterPosition()),v);
             });
         }
     }

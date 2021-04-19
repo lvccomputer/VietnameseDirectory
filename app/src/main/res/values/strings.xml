@@ -1,18 +1,19 @@
 <resources>
     <string name="app_name">Vietnamese Studies Dictionary</string>
 
-    <string name="search_hint_character">Tìm kiếm ...</string>
-    <string name="home_item_word">Từ Ngữ</string>
+    <string name="search_hint_character">Tìm kiếm …</string>
+    <string name="home_item_word">Các thuật ngữ</string>
     <string name="home_item_character">Bảng chữ cái</string>
     <string name="title_fragment_preview">Danh sách các từ của chữ cái</string>
     <string name="tutorial_select_character">Hãy chọn chữ cái của bạn.</string>
     <string name="title_meaning">Định Nghĩa</string>
     <string name="home_item_add_words">Thêm từ</string>
-    <string name="home_item_edit">Sửa</string>
+    <string name="home_item_edit">Từ đã thêm</string>
     <string name="tutorial_add_words_fragment">Hãy chọn chữ cái để thêm từ</string>
     <string name="title_add_word_fragment">Chọn chữ cái</string>
     <string name="title_add_word_content_fragment">Thêm từ</string>
-    <string name="hint_add_words">Điền từ của bạn ...</string>
+    <string name="title_edit_word_fragment">Sửa</string>
+    <string name="hint_add_words">Điền từ của bạn …</string>
     <string name="words_title_of_edit">Từ ngữ</string>
     <string name="text_select_photo">Chọn ảnh</string>
     <string name="title_addword_photo">Ảnh minh họa</string>
@@ -22,4 +23,6 @@
     <string name="or"> hoặc </string>
     <string name="not_equals"> phải bắt đầu bằng chữ cái </string>
     <string name="empty"> là trống!</string>
+    <string name="option_edit">Sửa</string>
+    <string name="option_delete">Xóa</string>
 </resources>

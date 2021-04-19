@@ -1,4 +1,4 @@
-package com.devlv.vietnamesedictionary.ui.main;
+package com.devlv.vietnamesedictionary.ui.main.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -26,18 +26,17 @@ import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.Utils;
 import com.devlv.vietnamesedictionary.common.db.DBManager;
 import com.devlv.vietnamesedictionary.common.models.CharacterVN;
+import com.devlv.vietnamesedictionary.ui.main.activities.MainActivity;
 
 import java.io.File;
 import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
 
-public class AddContentWordFragment extends Fragment {
-    private static final int REQUEST_CODE = 1111;
+public class AddContentWordFragment extends BaseFragment {
+    public static final int REQUEST_CODE = 1111;
     private static final String TAG = "AddContentWordFragment";
 
-    private View view;
-    private MainActivity mainActivity;
     private TextView tvCharacterAddWord, tvSave;
     private LinearLayout lnAddPhoto;
     private EditText edtTitle, edtContent;
@@ -65,13 +64,9 @@ public class AddContentWordFragment extends Fragment {
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_add_content_word, container, false);
-        Glide.with(this).load(R.drawable.bg_app).into((ImageView) view.findViewById(R.id.img_background));
-        mainActivity = (MainActivity) getActivity();
-        return view;
+    protected int getLayoutResource() {
+        return R.layout.fragment_add_content_word;
     }
 
     @Override
@@ -105,18 +100,16 @@ public class AddContentWordFragment extends Fragment {
         tvSave.setOnClickListener(v -> {
             if (!TextUtils.isEmpty(edtTitle.getText().toString())
                     && !TextUtils.isEmpty(edtContent.getText().toString())) {
-                if (String.valueOf(edtTitle.getText().toString().charAt(0)).toUpperCase().equals(characterVN.getCharacter())) {
+                if (Utils.deAccent(String.valueOf(edtTitle.getText().toString().charAt(0))).toUpperCase().equals(Utils.deAccent(characterVN.getCharacter()))) {
                     String fileName = null;
                     if (uri != null) {
                         File srcFile = new File(FileUtils.getPath(mainActivity, uri));
                         File dstFile = Utils.createPhotoFolder();
                         fileName = srcFile.getName();
-                        Log.e(TAG, "actions: "+fileName);
                         try {
                             org.apache.commons.io.FileUtils.copyFileToDirectory(srcFile, dstFile);
                         } catch (IOException e) {
                             e.printStackTrace();
-                            Log.e(TAG, "actions: "+e);
                         }
                     }
                     DBManager dbManager = new DBManager(mainActivity);
@@ -125,7 +118,7 @@ public class AddContentWordFragment extends Fragment {
                     dbManager.closeDB();
                     mainActivity.onBackPressed();
                     mainActivity.onToast("Saved!");
-                    if (callback!=null)callback.onCallbackResult("success");
+                    if (callback != null) callback.onCallbackResult("success");
                 } else {
                     mainActivity.onToast(mainActivity.getResources().getString(R.string.words_title_of_edit) + " " +
                             mainActivity.getResources().getString(R.string.not_equals) + " " + characterVN.getCharacter());

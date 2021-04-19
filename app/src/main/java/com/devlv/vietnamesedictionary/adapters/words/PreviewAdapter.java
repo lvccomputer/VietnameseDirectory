@@ -66,7 +66,7 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.ItemView
             itemListPreviewBinding = itemView;
             itemListPreviewBinding.cvPreview.setOnClickListener(v -> {
                 if (wordItemClickListener != null)
-                    wordItemClickListener.onItemClick(getAdapterPosition(), wordArrayList.get(getAdapterPosition()));
+                    wordItemClickListener.onItemClick(getAdapterPosition(), wordArrayList.get(getAdapterPosition()),v);
             });
         }
 

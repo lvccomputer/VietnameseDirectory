@@ -18,6 +18,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.Normalizer;
+import java.util.regex.Pattern;
 
 public class Utils {
     private static final String TAG = "Utils";
@@ -137,4 +139,10 @@ public class Utils {
 
     public static final String BASE_URI = "/data/user/0/";
     public static final String BASE_FOLDER = "photo";
+
+    public static String deAccent(String str) {
+        String nfdNormalizedString = Normalizer.normalize(str, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(nfdNormalizedString).replaceAll("");
+    }
 }

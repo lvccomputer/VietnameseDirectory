@@ -1,4 +1,4 @@
-package com.devlv.vietnamesedictionary.ui.main;
+package com.devlv.vietnamesedictionary.ui.main.activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -27,6 +27,12 @@ import com.devlv.vietnamesedictionary.common.models.CharacterVN;
 import com.devlv.vietnamesedictionary.common.models.Word;
 import com.devlv.vietnamesedictionary.ui.activity.BaseActivity;
 import com.devlv.vietnamesedictionary.ui.character.CharacterActivity;
+import com.devlv.vietnamesedictionary.ui.main.QueryWordTask;
+import com.devlv.vietnamesedictionary.ui.main.fragments.AddContentWordFragment;
+import com.devlv.vietnamesedictionary.ui.main.fragments.AddWordFragment;
+import com.devlv.vietnamesedictionary.ui.main.fragments.ContentFragment;
+import com.devlv.vietnamesedictionary.ui.main.fragments.EditContentFragment;
+import com.devlv.vietnamesedictionary.ui.main.fragments.WordsAddedFragment;
 import com.devlv.vietnamesedictionary.ui.word.WordActivity;
 import com.devlv.vietnamesedictionary.widgets.SquareLinearLayout;
 
@@ -34,7 +40,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements ItemClickListener<Word>, TextWatcher, Callback<ArrayList<Word>> {
     private static final String TAG = "MainActivity";
-    private SquareLinearLayout sqCharacter, sqWord, sqAddWord;
+    private SquareLinearLayout sqCharacter, sqWord, sqAddWord, sqWordsAdded;
 
     private RecyclerView rcvResultSearch;
     private WordSearchAdapter wordSearchAdapter;
@@ -64,6 +70,7 @@ public class MainActivity extends BaseActivity implements ItemClickListener<Word
         sqWord = findViewById(R.id.sq_word);
         sqAddWord = findViewById(R.id.sq_add_content);
         edtSearch = findViewById(R.id.edt_search);
+        sqWordsAdded = findViewById(R.id.sq_added_content);
         imgCloseSearch = findViewById(R.id.img_close_search);
         wordArrayList = new ArrayList<>();
         rcvResultSearch = findViewById(R.id.rcv_result_search);
@@ -98,6 +105,9 @@ public class MainActivity extends BaseActivity implements ItemClickListener<Word
             edtSearch.setText("");
             rcvResultSearch.setVisibility(View.GONE);
         });
+        sqWordsAdded.setOnClickListener(v -> {
+            showWordsAddedFragment();
+        });
     }
 
     @Override
@@ -106,7 +116,7 @@ public class MainActivity extends BaseActivity implements ItemClickListener<Word
     }
 
     @Override
-    public void onItemClick(int position, Word data) {
+    public void onItemClick(int position, Word data, View view) {
         hideKeyBoard(this);
         showContentFragment(data);
     }
@@ -218,11 +228,26 @@ public class MainActivity extends BaseActivity implements ItemClickListener<Word
         }
     }
 
-    public void showAddContentWordFragment(CharacterVN characterVN,Callback<String> callback) {
+    public void showAddContentWordFragment(CharacterVN characterVN, Callback<String> callback) {
         if (getSupportFragmentManager().findFragmentByTag(AddContentWordFragment.class.getSimpleName()) == null) {
             AddContentWordFragment fragment = AddContentWordFragment.newInstance(characterVN);
             fragment.setCallback(callback);
             addFragment(fragment, AddContentWordFragment.class.getSimpleName());
+        }
+    }
+
+    public void showWordsAddedFragment() {
+        if (getSupportFragmentManager().findFragmentByTag(WordsAddedFragment.class.getSimpleName()) == null) {
+            WordsAddedFragment fragment = WordsAddedFragment.newInstance();
+            addFragment(fragment, WordsAddedFragment.class.getSimpleName());
+        }
+    }
+
+    public void showEditFragment(Word word,Callback<String> callback) {
+        if (getSupportFragmentManager().findFragmentByTag(EditContentFragment.class.getSimpleName()) == null) {
+            EditContentFragment fragment = EditContentFragment.newInstance(word);
+            fragment.setCallback(callback);
+            addFragment(fragment, EditContentFragment.class.getSimpleName());
         }
     }
 }

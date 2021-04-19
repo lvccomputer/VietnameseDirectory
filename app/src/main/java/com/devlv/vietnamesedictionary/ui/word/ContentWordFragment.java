@@ -12,15 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.devlv.vietnamesedictionary.App;
 import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.Utils;
 import com.devlv.vietnamesedictionary.common.models.Word;
-
-import org.apache.commons.io.FilenameUtils;
-
-import java.io.File;
 
 import static com.devlv.vietnamesedictionary.Utils.BASE_FOLDER;
 import static com.devlv.vietnamesedictionary.Utils.BASE_URI;

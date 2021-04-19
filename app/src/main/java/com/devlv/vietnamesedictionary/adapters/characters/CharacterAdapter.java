@@ -58,7 +58,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Item
             itemListCharacterBinding = itemView;
             itemListCharacterBinding.cvItem.setOnClickListener(v -> {
                 if (itemClickListener != null)
-                    itemClickListener.onItemClick(getAdapterPosition(), characterVNArrayList.get(getAdapterPosition()));
+                    itemClickListener.onItemClick(getAdapterPosition(), characterVNArrayList.get(getAdapterPosition()),v);
             });
         }
     }

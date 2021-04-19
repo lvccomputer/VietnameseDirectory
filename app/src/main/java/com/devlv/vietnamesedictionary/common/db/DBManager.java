@@ -56,6 +56,19 @@ public class DBManager {
         return cursor;
     }
 
+    public String getCharacterById(int id) {
+        Cursor cursor = db.rawQuery("select " + DBTable.VN.CHARACTER + " from " + DBTable.VN.VN_TABLE_NAME + " where " + DBTable.VN.ID + " = '" + id + "'", null);
+        String character = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                character = cursor.getString(0);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        return character;
+
+    }
+
     public Cursor getMeaningByIDCharacterCursor(int id) {
         Cursor cursor = db.query(DBTable.MEANING.MEANING_TABLE_NAME
                 , null
@@ -74,6 +87,13 @@ public class DBManager {
 
     public Cursor getAllMeaningCursor() {
         Cursor cursor = db.rawQuery("select * from " + DBTable.MEANING.MEANING_TABLE_NAME, null);
+        if (cursor != null) cursor.moveToFirst();
+        return cursor;
+    }
+
+    public Cursor getContentUserCreate() {
+        Cursor cursor = db.rawQuery("select * from "
+                + DBTable.MEANING.MEANING_TABLE_NAME + " where " + DBTable.MEANING.USER_CREATE + " = 1", null);
         if (cursor != null) cursor.moveToFirst();
         return cursor;
     }

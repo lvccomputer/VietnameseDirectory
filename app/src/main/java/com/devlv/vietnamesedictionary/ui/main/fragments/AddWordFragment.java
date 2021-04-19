@@ -1,4 +1,4 @@
-package com.devlv.vietnamesedictionary.ui.main;
+package com.devlv.vietnamesedictionary.ui.main.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,13 +19,12 @@ import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
 import com.devlv.vietnamesedictionary.adapters.characters.CharacterAdapter;
 import com.devlv.vietnamesedictionary.common.models.CharacterVN;
+import com.devlv.vietnamesedictionary.ui.main.activities.MainActivity;
 import com.devlv.vietnamesedictionary.viewmodels.CharacterViewModel;
 
 import java.util.ArrayList;
 
-public class AddWordFragment extends Fragment implements ItemClickListener<CharacterVN>, Callback<String> {
-    private View view;
-    private MainActivity mainActivity;
+public class AddWordFragment extends BaseFragment implements ItemClickListener<CharacterVN>, Callback<String> {
 
     private RecyclerView rcvCharacter;
     private CharacterAdapter mCharacterAdapter;
@@ -45,12 +44,11 @@ public class AddWordFragment extends Fragment implements ItemClickListener<Chara
         fragment.setArguments(args);
         return fragment;
     }
-    @Nullable
+
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_add, container, false);
-        mainActivity = (MainActivity) getActivity();
-        return view;
+    protected int getLayoutResource() {
+        return R.layout.fragment_add;
     }
 
     @Override
@@ -91,7 +89,7 @@ public class AddWordFragment extends Fragment implements ItemClickListener<Chara
     }
 
     @Override
-    public void onItemClick(int position, CharacterVN data) {
+    public void onItemClick(int position, CharacterVN data,View v) {
         mainActivity.showAddContentWordFragment(data,this);
     }
 

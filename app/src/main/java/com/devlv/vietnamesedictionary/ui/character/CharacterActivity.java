@@ -1,6 +1,7 @@
 package com.devlv.vietnamesedictionary.ui.character;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -93,7 +94,7 @@ public class CharacterActivity extends BaseActivity implements ItemClickListener
     }
 
     @Override
-    public void onItemClick(int position, CharacterVN data) {
+    public void onItemClick(int position, CharacterVN data, View v) {
         showPreviewFragment(data.getId(), data.getCharacter());
     }
 

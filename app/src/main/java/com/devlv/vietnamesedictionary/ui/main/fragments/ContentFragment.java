@@ -1,18 +1,14 @@
-package com.devlv.vietnamesedictionary.ui.main;
+package com.devlv.vietnamesedictionary.ui.main.fragments;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.devlv.vietnamesedictionary.App;
 import com.devlv.vietnamesedictionary.R;
 import com.devlv.vietnamesedictionary.Utils;
@@ -21,10 +17,7 @@ import com.devlv.vietnamesedictionary.common.models.Word;
 import static com.devlv.vietnamesedictionary.Utils.BASE_FOLDER;
 import static com.devlv.vietnamesedictionary.Utils.BASE_URI;
 
-public class ContentFragment extends Fragment {
-    private MainActivity mainActivity;
-
-    private View view;
+public class ContentFragment extends BaseFragment {
     private TextView tvTitle, tvContent;
     private ImageView imgPreview;
     private Word word;
@@ -38,12 +31,10 @@ public class ContentFragment extends Fragment {
         return fragment;
     }
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_content, container, false);
-        mainActivity = (MainActivity) getActivity();
-        return view;
+    protected int getLayoutResource() {
+        return R.layout.fragment_content;
     }
 
     @Override

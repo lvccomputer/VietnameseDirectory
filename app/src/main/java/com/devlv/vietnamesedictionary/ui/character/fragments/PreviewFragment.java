@@ -124,7 +124,7 @@ public class PreviewFragment extends Fragment implements Callback<ArrayList<Word
     }
 
     @Override
-    public void onItemClick(int position, Word data) {
+    public void onItemClick(int position, Word data,View v) {
         activity.showContentFragment(data);
     }
 }

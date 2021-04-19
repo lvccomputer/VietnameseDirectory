@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.devlv.vietnamesedictionary.R;
-import com.devlv.vietnamesedictionary.ui.main.MainActivity;
+import com.devlv.vietnamesedictionary.ui.main.activities.MainActivity;
 
 public class SplashScreenActivity extends BaseActivity {
 

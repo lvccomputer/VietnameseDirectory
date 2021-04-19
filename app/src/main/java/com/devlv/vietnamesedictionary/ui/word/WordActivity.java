@@ -1,7 +1,6 @@
 package com.devlv.vietnamesedictionary.ui.word;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -18,7 +17,7 @@ import com.devlv.vietnamesedictionary.adapters.ItemClickListener;
 import com.devlv.vietnamesedictionary.adapters.words.PreviewAdapter;
 import com.devlv.vietnamesedictionary.common.models.Word;
 import com.devlv.vietnamesedictionary.ui.activity.BaseActivity;
-import com.devlv.vietnamesedictionary.ui.main.ContentFragment;
+import com.devlv.vietnamesedictionary.ui.main.fragments.ContentFragment;
 import com.devlv.vietnamesedictionary.widgets.EndlessRecyclerViewScrollListener;
 
 import java.util.ArrayList;
@@ -130,12 +129,12 @@ public class WordActivity extends BaseActivity implements ItemClickListener<Word
     public void showContentFragment(Word word) {
         if (getSupportFragmentManager().findFragmentByTag(ContentWordFragment.class.getSimpleName()) == null) {
             ContentWordFragment fragment = ContentWordFragment.newInstance(word);
-            addFragment(fragment, ContentFragment.class.getSimpleName());
+            addFragment(fragment, ContentWordFragment.class.getSimpleName());
         }
     }
 
     @Override
-    public void onItemClick(int position, Word data) {
+    public void onItemClick(int position, Word data,View view) {
         showContentFragment(data);
     }
 }

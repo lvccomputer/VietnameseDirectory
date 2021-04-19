@@ -115,7 +115,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:padding="25dp"
+                    android:padding="35dp"
                     android:src="@drawable/ic_home_words" />
             </com.devlv.vietnamesedictionary.widgets.SquareLinearLayout>
 
@@ -167,6 +167,37 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:text="@string/home_item_add_words"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </com.devlv.vietnamesedictionary.widgets.SquareLinearLayout>
+        <com.devlv.vietnamesedictionary.widgets.SquareLinearLayout
+            android:id="@+id/sq_added_content"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <com.devlv.vietnamesedictionary.widgets.SquareLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_box_three">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:padding="35dp"
+                    android:src="@drawable/ic_home_edit" />
+            </com.devlv.vietnamesedictionary.widgets.SquareLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="@string/home_item_edit"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
