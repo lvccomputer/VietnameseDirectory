@@ -37,7 +37,8 @@ public class LoadMoreTask extends AsyncTask<Integer, Void, ArrayList<Word>> {
                     , cursor.getString(2)
                     , cursor.getString(3)
                     , cursor.getInt(4), cursor.getInt(5));
-            wordArrayList.add(word);
+            if (word.getUserCreate() != 1)
+                wordArrayList.add(word);
             cursor.moveToNext();
         }
         dbManager.closeDB();

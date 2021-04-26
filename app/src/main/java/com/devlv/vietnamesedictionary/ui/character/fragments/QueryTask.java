@@ -35,8 +35,10 @@ public class QueryTask extends AsyncTask<Integer, Void, ArrayList<Word>> {
                     , cursor.getString(1)
                     , cursor.getString(2)
                     , cursor.getString(3)
-                    , cursor.getInt(4), cursor.getInt(5));
-            wordArrayList.add(word);
+                    , cursor.getInt(4)
+                    , cursor.getInt(5));
+            if (word.getUserCreate()!=1)
+                wordArrayList.add(word);
             cursor.moveToNext();
         }
         dbManager.closeDB();
